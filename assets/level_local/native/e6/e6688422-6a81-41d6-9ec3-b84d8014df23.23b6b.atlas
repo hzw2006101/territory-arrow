@@ -1,0 +1,20 @@
+
+chilun.png
+size: 152,108
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chilun
+  rotate: false
+  xy: 2, 2
+  size: 104, 104
+  orig: 104, 104
+  offset: 0, 0
+  index: -1
+chilun1
+  rotate: false
+  xy: 108, 65
+  size: 42, 41
+  orig: 42, 41
+  offset: 0, 0
+  index: -1

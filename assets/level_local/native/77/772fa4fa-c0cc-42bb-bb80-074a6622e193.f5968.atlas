@@ -1,0 +1,20 @@
+
+daoju_wudi.png
+size: 262,138
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+wudiguang1
+  rotate: true
+  xy: 2, 2
+  size: 134, 141
+  orig: 134, 141
+  offset: 0, 0
+  index: -1
+wudiguang2
+  rotate: true
+  xy: 145, 6
+  size: 130, 115
+  orig: 130, 115
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,48 @@
+
+jiantou3.png
+size: 122,90
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jian1
+  rotate: false
+  xy: 2, 2
+  size: 29, 32
+  orig: 29, 32
+  offset: 0, 0
+  index: -1
+jian2
+  rotate: false
+  xy: 33, 6
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+jian3
+  rotate: true
+  xy: 68, 2
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+jian4
+  rotate: false
+  xy: 91, 57
+  size: 29, 31
+  orig: 29, 31
+  offset: 0, 0
+  index: -1
+jian5
+  rotate: false
+  xy: 2, 36
+  size: 43, 52
+  orig: 43, 52
+  offset: 0, 0
+  index: -1
+jian6
+  rotate: true
+  xy: 47, 37
+  size: 51, 42
+  orig: 51, 42
+  offset: 0, 0
+  index: -1

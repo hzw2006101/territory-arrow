@@ -1,0 +1,20 @@
+
+guangdian.png
+size: 102,74
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guangdian1
+  rotate: false
+  xy: 74, 46
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+guangdian2
+  rotate: false
+  xy: 2, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1

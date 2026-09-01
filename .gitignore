@@ -1,0 +1,5 @@
+.workbuddy/
+*.br
+*.gz
+.DS_Store
+Thumbs.db

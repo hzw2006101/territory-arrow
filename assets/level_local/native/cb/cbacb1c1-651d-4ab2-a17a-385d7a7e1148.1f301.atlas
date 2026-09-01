@@ -1,0 +1,48 @@
+
+jiantou2.png
+size: 123,88
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hongjiantou1
+  rotate: false
+  xy: 2, 2
+  size: 30, 33
+  orig: 30, 33
+  offset: 0, 0
+  index: -1
+hongjiantou2
+  rotate: true
+  xy: 93, 54
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+hongjiantou3
+  rotate: true
+  xy: 66, 6
+  size: 33, 29
+  orig: 33, 29
+  offset: 0, 0
+  index: -1
+hongjiantou4
+  rotate: false
+  xy: 34, 2
+  size: 30, 33
+  orig: 30, 33
+  offset: 0, 0
+  index: -1
+hongjiantou5
+  rotate: false
+  xy: 2, 37
+  size: 44, 49
+  orig: 44, 49
+  offset: 0, 0
+  index: -1
+hongjiantou6
+  rotate: true
+  xy: 48, 41
+  size: 45, 43
+  orig: 45, 43
+  offset: 0, 0
+  index: -1

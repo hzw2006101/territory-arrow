@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arrow Party - Play Free Online | agi999</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit"/>
+<meta name="force-rendering" content="webkit"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="full-screen" content="yes"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<meta name="screen-orientation" content="">
+<meta name="x5-orientation" content="">
+<meta name="x5-page-mode" content="app">
+
+<!-- ===== SEO ===== -->
+<meta name="description" content="Arrow Party is a free online game you can play instantly in your browser on PC and mobile. No download required - jump in and start playing now on agi999.">
+<meta name="keywords" content="Arrow Party, online game, free browser game, play online, casual game, multiplayer game, HTML5 game, agi999">
+<meta name="author" content="agi999">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.agi999.com/SinglePlayer/arrowparty/">
+
+<!-- ===== Open Graph (Facebook / Discord / etc.) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arrow Party - Play Free Online | agi999">
+<meta property="og:description" content="Arrow Party is a free online game you can play instantly in your browser on PC and mobile. No download required.">
+<meta property="og:url" content="https://www.agi999.com/SinglePlayer/arrowparty/">
+<meta property="og:site_name" content="agi999">
+<!-- 1200x800 WebP, ~40KB; see /cover.webp (smaller than the original PNG, same content) -->
+<meta property="og:image" content="https://www.agi999.com/SinglePlayer/arrowparty/cover.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+
+<!-- ===== Twitter Card ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arrow Party - Play Free Online | agi999">
+<meta name="twitter:description" content="Arrow Party is a free online game you can play instantly in your browser on PC and mobile. No download required.">
+<meta name="twitter:image" content="https://www.agi999.com/SinglePlayer/arrowparty/cover.webp">
+
+<link rel="stylesheet" type="text/css" href="style-mobile.25fc5.css"/>
+<link rel="icon" href="favicon.8de18.ico"/>
+
+<!-- ===== Google Analytics (GA4) with EU Consent Mode v2 ===== -->
+<!-- GA4 Measurement ID: G-RNLRM2K6MD (shared with the main agi999 site) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RNLRM2K6MD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // Read prior choice using the SAME key as the main site ('cookie-consent'),
+  // so consent is shared across agi999 and the game subpage.
+  var storedConsent = localStorage.getItem('cookie-consent');
+  var consented = (storedConsent === 'accepted');
+  // Consent Mode v2: deny by default; grant only when the user has accepted.
+  gtag('consent', 'default', {
+    ad_storage: consented ? 'granted' : 'denied',
+    ad_user_data: consented ? 'granted' : 'denied',
+    ad_personalization: consented ? 'granted' : 'denied',
+    analytics_storage: consented ? 'granted' : 'denied',
+    wait_for_update: 500
+  });
+  // Configure ONCE but suppress the automatic page_view — we fire exactly one
+  // page_view below (or after the user accepts) to avoid double-counting.
+  gtag('config', 'G-RNLRM2K6MD', { send_page_view: false });
+  // Attach a stable game identifier to EVERY event so all games can be
+  // segmented under the shared GA4 property. Register 'game_name' as a custom
+  // dimension in GA4 Admin → Data display → Custom definitions.
+  gtag('set', { 'game_name': 'arrowparty' });
+  var pvFired = false;
+  window.__arrowPartyFirePageView = function () {
+    if (pvFired) return;
+    pvFired = true;
+    gtag('event', 'page_view', { page_path: location.pathname });
+  };
+  if (consented) window.__arrowPartyFirePageView();
+</script>
+
+<!-- ===== Responsive UI: top nav + cookie banner (mobile & PC) ===== -->
+<style>
+  .site-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    background: rgba(0,0,0,0.55);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .site-nav a {
+    pointer-events: auto;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .site-nav a:hover { background: rgba(255,255,255,0.18); }
+  .site-nav .home { font-weight: 600; }
+  @media (min-width: 768px) {
+    .site-nav { font-size: 14px; padding: 8px 20px; }
+    .site-nav a { padding: 8px 14px; }
+  }
+
+  /* Cookie consent banner (GDPR / EU) */
+  .cookie-banner {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 10000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(20,20,20,0.94);
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .cookie-banner[hidden] { display: none; }
+  .cookie-banner p { margin: 0; flex: 1 1 220px; }
+  .cookie-banner a { color: #7fb3ff; }
+  .cookie-actions { display: flex; gap: 8px; }
+  .cookie-btn {
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .cookie-btn--primary { background: #3b82f6; color: #fff; }
+  .cookie-btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+  @media (min-width: 768px) {
+    .cookie-banner { font-size: 14px; padding: 14px 24px; }
+    .cookie-btn { padding: 10px 20px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a class="home" href="https://www.agi999.com/">&#8592; agi999</a>
+  <a href="https://www.agi999.com/privacy">Privacy</a>
+</nav>
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <p>This site uses cookies for analytics. See our <a href="https://www.agi999.com/privacy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button id="cookie-reject" class="cookie-btn cookie-btn--ghost" type="button">Reject</button>
+    <button id="cookie-accept" class="cookie-btn cookie-btn--primary" type="button">Accept</button>
+  </div>
+</div>
+<canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+<div id="splash">
+<div class="progress-bar stripes">
+<span style="width: 0%"></span>
+</div>
+</div>
+<!-- EN edition: offline API stub + ad blocker, must load before the bootstrap -->
+<script src="./api-shim.js"></script>
+<!-- EN edition: unified ad bridge (STUB mode by default; provider-agnostic
+     API at window.AdBridge). Loads before the engine so Cocos code can call it. -->
+<script src="./ad-bridge.js"></script>
+<!--
+  === REAL AD SDK (fill in later) ============================================
+  When you pick a network (Pangle / AdMob / AppLovin / Unity…), do 3 things:
+
+  1) Load the SDK script here (after ad-bridge.js, before s.25896.js):
+       <script src="https://your-sdk-cdn.example.com/sdk.js"></script>
+
+  2) Open that SDK's domains through api-shim's blocklist — set this BEFORE
+     the engine makes any ad call (a plain assignment is enough; it's read at
+     request time):
+       <script>
+         window.__AD_ALLOW_DOMAINS = ['pangle\\.com', 'admob\\.com', 'appylivin\\.com'];
+       </script>
+
+  3) Configure + register the adapter in ad-bridge.js:
+       AdBridge.init({ provider: 'pangle', appId: 'xxx',
+                       placements: { rewarded: 'yyy', interstitial: 'zzz',
+                                     fullscreen: 'aaa', banner: 'bbb' } });
+       // + registerProvider('pangle', <your adapter implementing the SDK>)
+  ===========================================================================
+-->
+<!-- EN edition: runtime Chinese→English translation for all labels -->
+<script src="./i18n-shim.js"></script>
+<script src="./s.25896.js"></script>
+<!-- EN edition: configs are shipped as plain JSON, disable the runtime decrypt layer -->
+<script>window.htaPSJotpytC=undefined;window.epyTSJotpyrC=undefined;</script>
+<script>
+  // Cookie consent: show banner on first visit, gate GA on the user's choice.
+  (function(){
+    var banner = document.getElementById('cookie-banner');
+    var accept = document.getElementById('cookie-accept');
+    var reject = document.getElementById('cookie-reject');
+    var stored = localStorage.getItem('cookie-consent');
+    if (!stored) { banner.hidden = false; }
+    accept.addEventListener('click', function(){
+      localStorage.setItem('cookie-consent', 'accepted');
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+      if (window.__arrowPartyFirePageView) window.__arrowPartyFirePageView();
+      banner.hidden = true;
+    });
+    reject.addEventListener('click', function(){
+      localStorage.setItem('cookie-consent', 'declined');
+      banner.hidden = true;
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+zhuangji_tx.png
+size: 149,60
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guang
+  rotate: false
+  xy: 2, 2
+  size: 78, 56
+  orig: 78, 56
+  offset: 0, 0
+  index: -1
+huoguang1
+  rotate: false
+  xy: 82, 14
+  size: 24, 20
+  orig: 24, 20
+  offset: 0, 0
+  index: -1
+huoguang2
+  rotate: false
+  xy: 82, 36
+  size: 24, 22
+  orig: 24, 22
+  offset: 0, 0
+  index: -1
+huoguang3
+  rotate: false
+  xy: 108, 35
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+huoguang4
+  rotate: false
+  xy: 129, 41
+  size: 18, 17
+  orig: 18, 17
+  offset: 0, 0
+  index: -1
+huoguang5
+  rotate: false
+  xy: 108, 15
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+huoguang6
+  rotate: true
+  xy: 129, 22
+  size: 17, 18
+  orig: 17, 18
+  offset: 0, 0
+  index: -1
+huoguang7
+  rotate: false
+  xy: 128, 3
+  size: 18, 17
+  orig: 18, 17
+  offset: 0, 0
+  index: -1

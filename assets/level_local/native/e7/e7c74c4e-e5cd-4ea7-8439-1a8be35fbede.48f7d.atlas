@@ -1,0 +1,27 @@
+
+daoju_jiansu.png
+size: 36,83
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jiansu1
+  rotate: true
+  xy: 2, 58
+  size: 23, 26
+  orig: 23, 26
+  offset: 0, 0
+  index: -1
+jiansu2
+  rotate: true
+  xy: 2, 33
+  size: 23, 26
+  orig: 23, 26
+  offset: 0, 0
+  index: -1
+jiansu3
+  rotate: true
+  xy: 2, 2
+  size: 29, 32
+  orig: 29, 32
+  offset: 0, 0
+  index: -1

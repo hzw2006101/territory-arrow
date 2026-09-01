@@ -1,0 +1,139 @@
+
+emoji_nihong.png
+size: 697,422
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+k1
+  rotate: false
+  xy: 602, 218
+  size: 92, 100
+  orig: 92, 100
+  offset: 0, 0
+  index: -1
+k2
+  rotate: false
+  xy: 602, 320
+  size: 93, 100
+  orig: 93, 100
+  offset: 0, 0
+  index: -1
+k3
+  rotate: false
+  xy: 81, 20
+  size: 112, 58
+  orig: 112, 58
+  offset: 0, 0
+  index: -1
+k4
+  rotate: true
+  xy: 293, 10
+  size: 68, 48
+  orig: 68, 48
+  offset: 0, 0
+  index: -1
+k5
+  rotate: false
+  xy: 501, 2
+  size: 80, 79
+  orig: 80, 79
+  offset: 0, 0
+  index: -1
+k6
+  rotate: false
+  xy: 343, 12
+  size: 68, 48
+  orig: 68, 48
+  offset: 0, 0
+  index: -1
+k7
+  rotate: false
+  xy: 602, 137
+  size: 80, 79
+  orig: 80, 79
+  offset: 0, 0
+  index: -1
+k8
+  rotate: false
+  xy: 2, 80
+  size: 341, 340
+  orig: 341, 340
+  offset: 0, 0
+  index: -1
+sl1
+  rotate: false
+  xy: 413, 5
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+sl2
+  rotate: false
+  xy: 413, 5
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+sl10
+  rotate: false
+  xy: 195, 9
+  size: 96, 69
+  orig: 96, 69
+  offset: 0, 0
+  index: -1
+sl11
+  rotate: true
+  xy: 501, 83
+  size: 108, 79
+  orig: 108, 79
+  offset: 0, 0
+  index: -1
+sl3
+  rotate: false
+  xy: 583, 80
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+sl4
+  rotate: false
+  xy: 583, 23
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+sl5
+  rotate: false
+  xy: 2, 2
+  size: 77, 76
+  orig: 77, 76
+  offset: 0, 0
+  index: -1
+sl6
+  rotate: false
+  xy: 2, 2
+  size: 77, 76
+  orig: 77, 76
+  offset: 0, 0
+  index: -1
+sl7
+  rotate: false
+  xy: 345, 205
+  size: 157, 215
+  orig: 157, 215
+  offset: 0, 0
+  index: -1
+sl8
+  rotate: false
+  xy: 504, 193
+  size: 96, 227
+  orig: 96, 227
+  offset: 0, 0
+  index: -1
+sl9
+  rotate: false
+  xy: 345, 62
+  size: 154, 141
+  orig: 154, 141
+  offset: 0, 0
+  index: -1
