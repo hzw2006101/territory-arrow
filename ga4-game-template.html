@@ -1,0 +1,153 @@
+<!--
+================================================================================
+  GA4 多游戏接入模板  —  agi999 单机游戏家族 (/SinglePlayer/<game>/)
+================================================================================
+  设计目标
+  --------
+  • 所有游戏共用同一个 GA4 Measurement ID（当前 G-RNLRM2K6MD，和主站同号），
+    不需要给每个游戏开独立的媒体资源 / 数据流。
+  • 靠两个维度天然区分游戏与页面：
+      - page_path   : GA4 内置维度，自动取当前 URL 路径。
+                      arrowparty → /SinglePlayer/arrowparty/
+                      game2     → /SinglePlayer/game2/  ……天然不同。
+      - game_name   : 自定义维度（本模板用 gtag('set') 打到每个事件），
+                      需在 GA4 后台注册一次才能在标准报告里当维度用
+                      （DebugView / BigQuery 里不用注册直接可见）。
+  • 合规：EU Consent Mode v2，默认 deny，用户同意后 grant。
+    与主站共用 localStorage 键 'cookie-consent'，同意状态跨主站/子页共享。
+  • 部署：git push 即上线（Git 集成部署），无需 vercel --prod。
+
+  ★ 每个新游戏只需改 3 处（搜 “PER-GAME”）★
+    1) <title> / og:title / twitter:title 里的游戏名
+    2) canonical / og:url / og:image 里的游戏路径 (/SinglePlayer/<game>/)
+    3) gtag('set', {'game_name': '...'}) 里的名字
+  其余（Measurement ID、consent 逻辑、page_view 触发）全部通用，照抄即可。
+================================================================================
+-->
+
+<!-- ===================== A. 放入 <head>（在 </head> 之前） ===================== -->
+
+<!-- ===== Google Analytics (GA4) with EU Consent Mode v2 ===== -->
+<!-- PER-GAME：Measurement ID 全家族共用，一般不用改；如下个游戏换号再改这里 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RNLRM2K6MD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // 读取同意状态：与主站用同一个 localStorage 键 'cookie-consent'，
+  // 这样在主站/任意子页点过一次 Accept，全站共享，不会重复弹 banner。
+  var storedConsent = localStorage.getItem('cookie-consent');
+  var consented = (storedConsent === 'accepted');
+
+  // Consent Mode v2：默认 deny；只有用户已接受才 grant。
+  gtag('consent', 'default', {
+    ad_storage: consented ? 'granted' : 'denied',
+    ad_user_data: consented ? 'granted' : 'denied',
+    ad_personalization: consented ? 'granted' : 'denied',
+    analytics_storage: consented ? 'granted' : 'denied',
+    wait_for_update: 500
+  });
+
+  // 配置一次，但关掉自动 page_view —— 我们在下面（或用户同意后）手动触发一次，
+  // 避免重复计数（引擎首屏 + 自动 PV 双发）。
+  gtag('config', 'G-RNLRM2K6MD', { send_page_view: false });
+
+  // PER-GAME：每个游戏写死自己的名字。这个 gtag('set') 会把 game_name
+  // 附加到本页之后发出的【每一个事件】，不只是 page_view。
+  // 例如 territoryarrow → 'territoryarrow'，下一个游戏 → 'game2' / 'solitaire' ……
+  // 必须到 GA4 后台注册为「自定义维度」（见文件底部说明）才能在标准报告筛选。
+  gtag('set', { 'game_name': 'territoryarrow' });
+
+  // 只触发一次的 page_view。已同意 → 立即发；未同意 → 等用户点 Accept 再发。
+  var pvFired = false;
+  window.__gameFirePageView = function () {
+    if (pvFired) return;
+    pvFired = true;
+    // 显式带 page_path，即使将来路径变化也以真实路径为准（page_path 是内置维度）。
+    gtag('event', 'page_view', { page_path: location.pathname });
+  };
+  if (consented) window.__gameFirePageView();
+</script>
+
+<!-- Cookie 同意 banner 的样式（放在 <style> 内，或沿用主站现成样式）。
+     仅 PC/移动端顶部导航 + 底部同意条，不影响 Cocos 画布。 -->
+<style>
+  .cookie-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 10000;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 12px 16px; background: rgba(20,20,20,0.94); color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 13px; line-height: 1.4;
+  }
+  .cookie-banner[hidden] { display: none; }
+  .cookie-banner p { margin: 0; flex: 1 1 220px; }
+  .cookie-banner a { color: #7fb3ff; }
+  .cookie-actions { display: flex; gap: 8px; }
+  .cookie-btn { padding: 8px 16px; border: 0; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  .cookie-btn--primary { background: #3b82f6; color: #fff; }
+  .cookie-btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+  @media (min-width: 768px) {
+    .cookie-banner { font-size: 14px; padding: 14px 24px; }
+    .cookie-btn { padding: 10px 20px; font-size: 14px; }
+  }
+</style>
+
+<!-- ===================== B. 放入 <body>（画布/引擎脚本之前或之后均可） ===================== -->
+
+<!-- 同意条 DOM（首次访问显示，同意后隐藏；状态存 localStorage） -->
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <p>This site uses cookies for analytics. See our <a href="https://www.agi999.com/privacy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button id="cookie-reject" class="cookie-btn cookie-btn--ghost" type="button">Reject</button>
+    <button id="cookie-accept" class="cookie-btn cookie-btn--primary" type="button">Accept</button>
+  </div>
+</div>
+
+<script>
+  // Cookie 同意：首次访问弹条，按选择 gate GA。
+  (function () {
+    var banner = document.getElementById('cookie-banner');
+    var accept = document.getElementById('cookie-accept');
+    var reject = document.getElementById('cookie-reject');
+    var stored = localStorage.getItem('cookie-consent');
+    if (!stored) { banner.hidden = false; }            // 没选过 → 弹
+    accept.addEventListener('click', function () {
+      localStorage.setItem('cookie-consent', 'accepted');
+      gtag('consent', 'update', {            // 用户同意 → 升级 consent 并发 PV
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+      if (window.__gameFirePageView) window.__gameFirePageView();
+      banner.hidden = true;
+    });
+    reject.addEventListener('click', function () {
+      localStorage.setItem('cookie-consent', 'declined');
+      banner.hidden = true;                  // 拒绝：保持 deny，不发 PV
+    });
+  })();
+</script>
+
+<!--
+================================================================================
+  部署 & 后台配置清单（一次性）
+================================================================================
+  1) 把上面 A 段贴进 <head>、B 段贴进 <body>（照抄，只改 PER-GAME 三处）。
+  2) git push 到生产分支即上线（Git 集成部署，无需 vercel --prod）。
+  3) 【必须手动】到 GA4 后台注册自定义维度，否则 game_name 只能看不能用：
+       GA4 → 管理(Admin) → 数据展示(Data display) → 自定义定义(Custom definitions)
+         → 新建自定义维度(Create custom dimension)
+         - 维度名称(Dimension name)：game_name
+         - 范围(Scope)：事件(event)
+         - 事件参数(Event parameter)：game_name
+       （注册后约 24h 生效；生效后即可在「网页和屏幕」/ Explorations 里按游戏拆分）
+
+  查看区分效果
+  ------------
+  • 按页面：标准报告「网页和屏幕」里看 page_path（/SinglePlayer/arrowparty/ …）。
+  • 按游戏：注册 game_name 后，任意报告加对比项 / 过滤器选 game_name。
+  • 跨游戏汇总：全部在同一个 G-RNLRM2K6MD 媒体资源内，用上述维度自由切。
+================================================================================
+-->
