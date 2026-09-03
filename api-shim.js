@@ -115,6 +115,36 @@
     } catch (e) { /* ignore */ }
   });
 
+  // ---- Sub-path asset-base fix ----
+  // When the game is served under a sub-path (e.g. /SinglePlayer/arrowparty/),
+  // the obfuscated loader derives its asset root from location.pathname by
+  // stripping the "last segment", which drops the `arrowparty` level and makes
+  // it request /SinglePlayer/assets/... instead of
+  // /SinglePlayer/arrowparty/assets/... (→ 404). We present a pathname that
+  // always ends in a filename so "strip last segment" keeps the full sub-path
+  // on every origin (root or sub-path alike), without a hard-coded path.
+  try {
+    var pathDesc = Object.getOwnPropertyDescriptor(Location.prototype, 'pathname');
+    if (pathDesc && pathDesc.get) {
+      var realPathGet = pathDesc.get;
+      Object.defineProperty(Location.prototype, 'pathname', {
+        get: function () {
+          var p = realPathGet.call(this);
+          if (typeof p !== 'string' || p.length === 0) return p;
+          // Already a file path (ends with .ext) — leave untouched.
+          if (/\/[^\/]+\.[a-z0-9]+$/i.test(p)) return p;
+          // Directory form → append a fake html filename so the parent dir
+          // computation retains the full sub-path:
+          //   /SinglePlayer/arrowparty/      -> /SinglePlayer/arrowparty/index.html
+          //   /                              -> /index.html
+          return p.charAt(p.length - 1) === '/' ? p + 'index.html' : p + '/index.html';
+        },
+        set: pathDesc.set ? function (v) { pathDesc.set.call(this, v); } : undefined,
+        configurable: true
+      });
+    }
+  } catch (e) { /* ignore */ }
+
   // ---- No-op stubs for ad SDK globals the Chinese build may probe ----
   window.__AD_SHIM__ = true;
   // Expose the allow-list knob so ad-bridge.js (or your bootstrap) can open
