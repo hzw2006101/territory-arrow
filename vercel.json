@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/(.*)\\.html$",
+      "source": "/(.*).html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
@@ -26,43 +26,43 @@
       ]
     },
     {
-      "source": "/(.*)cocos2d-js-min\\.06694\\.js$",
+      "source": "/(.*)cocos2d-js-min.06694.js",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)s\\.25896\\.js$",
+      "source": "/(.*)s.25896.js",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)physics-min\\.js$",
+      "source": "/(.*)physics-min.js",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)style-mobile\\.25fc5\\.css$",
+      "source": "/(.*)style-mobile.25fc5.css",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)splash\\.85cfd\\.png$",
+      "source": "/(.*)splash.85cfd.png",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)cover\\.webp$",
+      "source": "/(.*)cover.webp",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)favicon\\.8de18\\.ico$",
+      "source": "/(.*)favicon.8de18.ico",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
