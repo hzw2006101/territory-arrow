@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8">
 <base href="/SinglePlayer/arrowparty/">
+<!-- Preload engine + bundle scripts so they download in parallel with the
+     page. Biggest win: the ~8MB gameScript bundle used to start downloading
+     only after the splash finished (~19s), adding 15-30s of cold-start stall.
+     Classic-script preloads share the fetch with the engine (no double-load);
+     stale hashes after a redeploy 404 harmlessly. -->
+<link rel="preload" href="/SinglePlayer/arrowparty/cocos2d-js-min.06694.js" as="script">
+<link rel="preload" href="/SinglePlayer/arrowparty/physics-min.js" as="script">
+<link rel="preload" href="/SinglePlayer/arrowparty/assets/internal/index.d0832.js" as="script">
+<link rel="preload" href="/SinglePlayer/arrowparty/assets/resources/index.5ac55.js" as="script">
+<link rel="preload" href="/SinglePlayer/arrowparty/assets/main/index.4396b.js" as="script">
+<link rel="preload" href="/SinglePlayer/arrowparty/assets/gameScript/index.fc3c9.js" as="script">
 <title>Territory Arrow - Play Free Online | agi999</title>
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
 <meta name="apple-mobile-web-app-capable" content="yes">

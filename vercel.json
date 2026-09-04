@@ -14,19 +14,6 @@
       ]
     },
     {
-      "source": "/(.*)\\.(js|css|json|atlas|svg|xml|txt|map|webmanifest)$",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" },
-        { "key": "Vary", "value": "Accept-Encoding" }
-      ]
-    },
-    {
-      "source": "/(.*)\\.(png|jpe?g|gif|webp|avif|ico|woff2?|ttf|otf|eot|mp3|wav|ogg|m4a|mp4|webm)$",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
-      ]
-    },
-    {
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
@@ -34,6 +21,48 @@
     },
     {
       "source": "/SinglePlayer/arrowparty/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)cocos2d-js-min\\.06694\\.js$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)s\\.25896\\.js$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)physics-min\\.js$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)style-mobile\\.25fc5\\.css$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)splash\\.85cfd\\.png$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)cover\\.webp$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)favicon\\.8de18\\.ico$",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
