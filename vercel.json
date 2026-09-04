@@ -41,6 +41,7 @@
   ],
   "rewrites": [
     { "source": "/SinglePlayer/arrowparty", "destination": "/" },
+    { "source": "/SinglePlayer/arrowparty/", "destination": "/" },
     { "source": "/SinglePlayer/arrowparty/:path*", "destination": "/:path*" }
   ]
 }
